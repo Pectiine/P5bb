@@ -18,4 +18,3 @@ Une partie admin pour rajouter les restaurants qui ont été testés, possibilit
 
 Pour utilisez le projet il faut installer symfony ainsi que composer sur sa machine. 
 Pour se rendre dans la partie admin http://127.0.0.1:8000/admin 
-Ajout d'option http://127.0.0.1:8000/admin/option 
