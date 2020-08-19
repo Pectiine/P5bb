@@ -1,11 +1,3 @@
-MAJ 17/08
-
-* heberger
-* test du site, de la recherche.
-* relire le code, fomrater, rendre propre regier read me
-
-php -S 127.0.0.1:8000 -t public
-
 #Projet 5 guide hamburger région Auvergne-Rhône-Alpes
 
 ###Résumé du projet:
