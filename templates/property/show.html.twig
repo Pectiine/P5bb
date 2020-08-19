@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+ 
+{% block title property.title %}
+{% block body %}
+	<div class="jumbotron p-10">
+		<div class="container">
+		{% for message in app.flashes('success') %}
+				<div class="alert alert-success">
+					{{ message }}
+				</div>
+			{% endfor %}
+			{% if not form.vars.valid %}
+				<div class="alert alert-danger">
+					Erreur
+				</div>
+			{% endif %}
+			<div class="row" p-3 >
+				<div class="col-md-6 ">
+					<div data-slider  >
+						{% if property.pictures is empty %}
+							<img src="{{"/images/empty.jpg"|imagine_filter('thumb')}}" alt="card image" class="card-img-top">
+						{% else %}
+							{% for picture in property.pictures %}
+								<img style="
+    height: 60vh;" src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('medium') }}" alt="card-img-top" style="width: 100%; height:auto;">
+							{% endfor %}
+						{% endif %}
+					</div>
+				</div>
+				<div class="col-md-6">
+					<h2>{{ property.title }}</h2>
+					<div class="text-success" style="font-size: 1.4rem;font-weight: bold;">{{ property.formattedPrice }}
+						€ prix moyen</div>
+					<h5>Spécificité: 
+					{{property.typeType|join(',')}}</h5>
+                <h5> Notre avis </h5> 
+		<p>{{ property.description | nl2br }}</p>
+					{% if app.user %}
+				<a href="{{ path('admin.property.edit',{id: property.id}) }}" class="btn btn-secondary">Editer</a>
+					{% endif %}	</div>
+				</div>
+					 {% if not form.vars.valid %}
+                <div class="alert alert-danger">
+                    Erreur dans le formulaire, veuillez corriger vos erreurs !
+                </div>
+            {% endif %} <a href="" class="btn btn-secondary" id="contactButton"{% if form.vars.submitted %} style="display: none";{% endif %}>Une question? Envoyez nous un message!</a>
+
+                    <!-- Condition si bouton "Contacter" n'est pas soummis on cache le formulaire, sinon on l'affiche-->
+                    <div id="contactForm" class="mt-4" {% if not form.vars.submitted %} style="display: none";{% endif %} >
+                        {{ form_start(form)}}
+                        <div class="row">
+                            <div class="col">{{ form_row(form.firstname)}}</div>
+                            <div class="col">{{ form_row(form.lastname)}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">{{ form_row(form.phone)}}</div>
+                            <div class="col">{{ form_row(form.email)}}</div>
+                        </div>
+                        {{ form_rest(form)}}
+                        <div class="form-group">
+                            <button class="btn  btn-secondary">Envoyer</button>
+                        </div>
+                        {{ form_end(form)}}
+                    </div>
+				
+				
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="container p-3 mt-2">
+		<div class="row">
+			<div class="col-md-4 p-3">
+				<h4>Adresse</h4>
+			{{ property.title }}
+			{{property.address}}
+			{{property.city}}
+			({{property.postalCode}})
+				<ul class="list-group">
+					{% for option in property.options %}
+						<li class="list-group-item">{{ option.name }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div id="map" style="width: 100%; height: 400px" data-lat="{{ property.lat }}" data-lng="{{ property.lng }}"></div>
+	</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Toutes nos références' %}
+
+{% block body %}
+	<div class="container p-2 mt-3">
+		{{form_start(form, {"attr":{"class":  "bg-secondary w-55 p-4", "id" : "search-form"}})}}
+		<h3 class="text-white mb-5">Rechercher un vrai hamburger</h3>
+	<p> Veuillez remplir tout le formulaire pour un résultat optimal</p> 
+		<div class="form-row ">
+			<div class="col-12">
+				{{ form_row(form.type) }}
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col-6">
+				{{ form_row(form.maxPrice) }}
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col-6">
+			{{ form_row(form.address, {id: 'search_address'}) }} 
+			</div>
+		    </div>
+			<div class="form-row">
+			<div class="col-6">
+			<h6> Distance </h6>
+				{{ form_row(form.distance) }}
+				 <div class="col">
+				 <h6> Option </h6>
+                    {{ form_row(form.options) }}
+                </div>
+				</div>
+		</div>
+	
+				<div class="form-row text-center">
+			<div class="col-6">
+				<button class="btn bg-white center-block">Rechercher</button>
+			</div>
+		</div>
+	</div>
+
+</div>
+</div>
+<div class=" container mt-4">
+<h3 class="p-2">Tout voir </h3>
+
+<div class="row">
+	{% for property in properties %}
+		<div class="col-md-4">
+			{% include 'property/_property.html.twig' %}
+		</div>
+	{% endfor %}
+</div>
+
+<div class="pagination justify-content-center">
+	{{ knp_pagination_render(properties) }}
+</div>{% endblock %}

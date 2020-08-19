@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title> 
+		<link href="/assets/css/main.css" rel="stylesheet"> 
+		<link rel="icon" href="{{ "/images/burger_122704.png" }}"/>
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+		  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   		 integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   	 	crossorigin="" />
+
+			<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+ 	 	<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+		{{ encore_entry_link_tags('app') }}
+		{% block stylesheets %}{% endblock %}
+	</head>
+	<body>
+	         <a  href="{{ path('home')}}">	
+			<img width="130" class="rounded mx-auto d-block"src="\images\_BurgerBookLogo.png" alt="logob"/> </a>
+		<nav class="navbar navbar-expand-lg navbar-light bg-transparent nav justify-content-center ">
+					<li class="nav-item ">
+						<a class="nav-link text-dark {% if current_menu is defined and current_menu == " properties" %} active {% endif %}" href="{{ path('property.index') }}">Les références
+						</a>
+					</li>
+				</ul>	
+			</div>
+	
+		</nav>
+		<div class="text-center">
+		<h6 style="font-family: 'Luckiest Guy'">Le guide du vrai burger</h6>
+		<p style="font-family: 'Open Sans Condensed'">	Région Rhône alpes </p> </div>
+		{% block body %}{% endblock %}  
+		<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   	 integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   	 crossorigin=""></script>
+		<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		{{ encore_entry_script_tags('app') }}
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	{% block javascripts %}{% endblock %}
+	</body>
+	<footer class="p-1">
+	<nav class="navbar navbar-expand-lg navbar-light bg-secondary nav justify-content-center text-white-50 ">
+				<ul class="nav justify-content-center">
+				{% if app.user %}
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a href="{{path('logout')}}" class="nav-link">Se déconnecter</a>
+						</li>
+					</ul>
+				{% endif %}
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a href="https://www.instagram.com/jo3ll3/?igshid=t7smlym44ow8&fbclid=IwAR326P1lCIn8cNJpa_dFi10Z7Ghy5x5_iurnuKBfZD0KPVMJ0GXAo4hHlNE" class="nav-link">Auteur du logo</a>
+						</li>
+					</ul>	
+			
+<p class="text-center"> 
+*Prix moyen d'un menu par personne adulte. Ps: les photos peuvent provenir d'internet car on a mangé si vite qu'on a oublié de faire une jolie photo.</p> 
+</nav> </footer>
+</html>
