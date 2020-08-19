@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> 11ef01c1b8b0124e16d6e7206a1cb026806bdcbf
 #Projet 5 guide hamburger région Auvergne-Rhône-Alpes
 
 ###Résumé du projet:
@@ -23,5 +20,3 @@ Pour utilisez le projet il faut installer symfony ainsi que composer sur sa mach
 <<<<<<< HEAD
 Pour se rendre dans la partie admin http://127.0.0.1:8000/admin 
 =======
-Pour se rendre dans la partie admin http://127.0.0.1:8000/admin 
->>>>>>> 11ef01c1b8b0124e16d6e7206a1cb026806bdcbf
