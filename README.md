@@ -17,5 +17,8 @@ Une partie admin pour rajouter les restaurants qui ont été testés, possibilit
 *Javascript
 
 Pour utilisez le projet il faut installer symfony ainsi que composer sur sa machine. 
+Utiliser le fichier SQl pour la base de donnée. 
+
+
 Pour se rendre dans la partie admin http://127.0.0.1:8000/admin 
 
